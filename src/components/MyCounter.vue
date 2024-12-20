@@ -2,6 +2,7 @@
    <section>
       <h3>Counter: {{  counter  }}</h3>
       <h3>Square: {{ squareCounter }}</h3>
+      <small>{{ text }}</small>
       <div>
          <!-- <button @click="increment">+1</button>
          <button @click="decrement">-1</button> -->
@@ -16,6 +17,7 @@
 
    interface Props {
       value: number;
+      text: string;
    }
 
    const props = defineProps<Props>();
