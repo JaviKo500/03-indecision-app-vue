@@ -1,10 +1,29 @@
 <template>
-   <h1>Hello World</h1>
+   <section>
+      <h3>Counter: {{  counter  }}</h3>
+      <h3>Square: {{ squareCounter }}</h3>
+      <div>
+         <!-- <button @click="increment">+1</button>
+         <button @click="decrement">-1</button> -->
+         <button @click="counter++">+1</button>
+         <button @click="counter--">-1</button>
+      </div>
+   </section>
 </template>
 
 <script lang="ts" setup>
-   console.log('<--------------- JK App --------------->');
-   console.log('Hello World');
+   import { computed, ref } from 'vue';
+   const counter = ref(2);
+   const squareCounter =  computed(() => counter.value * counter.value);
+
+   // function increment() {
+   //    counter.value++;
+   // }
+
+   // function decrement() {
+   //    counter.value--;
+   // }
+
 </script>
 <style scoped >
 h1 {
