@@ -6,8 +6,8 @@
       <div>
          <!-- <button @click="increment">+1</button>
          <button @click="decrement">-1</button> -->
-         <button @click="counter++">+1</button>
-         <button @click="counter--">-1</button>
+         <button class="btn" @click="counter++">+1</button>
+         <button class="btn" @click="counter--">-1</button>
       </div>
    </section>
 </template>
@@ -44,10 +44,7 @@
 
 </script>
 <style scoped >
-h1 {
-  color: red;
-}
-body {
-  background-color: black;
-}
+   .btn {
+      @apply p-5 bg-blue-500 rounded hover:bg-blue-700 mr-2;
+   }
 </style>

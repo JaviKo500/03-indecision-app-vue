@@ -1,5 +1,7 @@
 <template>
-   <h1>My first vue app</h1>
+   <h1 class="text-3xl font-bold underline">
+      My first vue app
+   </h1>
    <hr>
    <MyCounter :value="5" text="init value 5"/>  
    <MyCounterScript :value="1" text="init value 1"/>
