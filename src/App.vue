@@ -1,9 +1,6 @@
 <template>
-   <h1 class="text-3xl font-bold underline">
-      Hello Vue
-   </h1>
- 
+   <IndecisionView />
 </template>
 <script lang="ts" setup>
- 
+import IndecisionView from '@/views/IndecisionView.vue'; 
 </script>
