@@ -7,7 +7,7 @@
       <!-- * Chat Messages -->
       <ChatMessages :messages="messages" />
       <!-- * Message Box -->
-      <MessageBox />
+      <MessageBox @send-message="onMessage" />
    </div>
 </template>
 <script setup lang="ts">
@@ -37,4 +37,11 @@ const messages = ref<ChatMessage[]>([
    },
 ]);
 
+const onMessage = (message: string) => {
+   messages.value.push({
+      id: new Date().getTime(),
+      message,
+      itsMine: true,
+   });
+}
 </script>
