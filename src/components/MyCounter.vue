@@ -1,7 +1,7 @@
 <template>
    <section>
-      <h3>Counter: {{  counter  }}</h3>
-      <h3>Square: {{ squareCounter }}</h3>
+      <h3>Counter: {{ counter }}</h3>
+      <h3 data-test-id="square-label">Square: {{ squareCounter }}</h3>
       <!-- <small>{{ text }}</small> -->
       <div>
          <!-- <button @click="increment">+1</button>
@@ -14,38 +14,38 @@
 
 <script lang="ts" setup>
 import { useCounter } from '../composables/useCounter';
-   // import { computed, ref } from 'vue';
+// import { computed, ref } from 'vue';
 
-   interface Props {
-      value: number;
-      text: string;
-   }
+interface Props {
+   value: number;
+   text: string;
+}
 
-   const props = defineProps<Props>();
+const props = defineProps<Props>();
 
-   // const props = defineProps({
-   //    value: {
-   //       type: Number,
-   //       default: 1,
-   //    }
-   // });
+// const props = defineProps({
+//    value: {
+//       type: Number,
+//       default: 1,
+//    }
+// });
 
-   // console.log('<--------------- JK MyCounter --------------->');
-   // console.log('props.value', props);
-   // const counter = ref(props.value );
-   // const squareCounter =  computed(() => counter.value * counter.value);
+// console.log('<--------------- JK MyCounter --------------->');
+// console.log('props.value', props);
+// const counter = ref(props.value );
+// const squareCounter =  computed(() => counter.value * counter.value);
 
-   // function increment() {
-   //    counter.value++;
-   // }
+// function increment() {
+//    counter.value++;
+// }
 
-   // function decrement() {
-   //    counter.value--;
-   // }
-   const { counter, squareCounter } = useCounter( props.value );
+// function decrement() {
+//    counter.value--;
+// }
+const { counter, squareCounter } = useCounter(props.value);
 </script>
-<style scoped >
-   .btn {
-      @apply p-5 bg-blue-500 rounded hover:bg-blue-700 mr-2;
-   }
+<style scoped>
+.btn {
+   @apply p-5 bg-blue-500 rounded hover:bg-blue-700 mr-2;
+}
 </style>
