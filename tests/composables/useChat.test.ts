@@ -33,7 +33,7 @@ describe('UseChat.test', () => {
       const { onMessage, messages } = useChat();
 
       await onMessage(text);
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1600));
 
       const [myMessage, herMessage] = messages.value;
       expect(messages.value.length).toBe(2);
@@ -50,5 +50,30 @@ describe('UseChat.test', () => {
          itsMine: true,
          message: text,
       })
+   });
+
+   test('mock response fetch api', async () => {
+      const mockResponse = {
+         answer: 'Yes',
+         image: 'https://picsum.photos/200',
+      };
+
+      (window as any).fetch = vi.fn(async () => ({
+         json: async () => mockResponse,
+      }));
+
+      const text = 'like coffee?';
+      const { onMessage, messages } = useChat();
+      await onMessage(text);
+      await new Promise(resolve => setTimeout(resolve, 1600));
+
+      const [, herMessage] = messages.value;
+
+      expect(herMessage).toEqual({
+         id: expect.any(Number),
+         itsMine: false,
+         message: mockResponse.answer,
+         image: mockResponse.image,
+      });
    });
 });
