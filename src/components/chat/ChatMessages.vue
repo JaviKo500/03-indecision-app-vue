@@ -13,7 +13,7 @@
 import type { ChatMessage } from '@/interfaces/chat-message.interface';
 import ChatBubble from './ChatBubble.vue';
 import { ref, watch } from 'vue';
-import { sleep } from '../../helpers/sleep';
+// import { sleep } from '../../helpers/sleep';
 
 interface Props {
    messages: ChatMessage[];
@@ -23,14 +23,14 @@ const props = defineProps<Props>();
 
 const chatRef = ref<HTMLDivElement | null>(null);
 
-watch(props.messages, async () => {
-   console.log('<--------------- JK ChatMessages --------------->');
-   console.log(props.messages.length);
-   await sleep(0.5);
-   chatRef.value?.scrollTo({
-      top: chatRef.value?.scrollHeight,
-      behavior: 'smooth',
-   });
+watch(props, () => {
+   // await sleep(0.5);
+   setTimeout(() => {
+      chatRef.value?.scrollTo({
+         top: chatRef.value?.scrollHeight,
+         behavior: 'smooth',
+      });
+   }, 100);
 });
 
 </script>
